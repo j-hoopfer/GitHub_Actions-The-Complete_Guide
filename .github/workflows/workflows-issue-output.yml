@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'services/workflows/**' # Triggers for changes in servies/workflows directory
-      - '.github/workflows/workflows-build.yml' # Also trigger if the workflow file itself changes
+      - '.github/workflows/workflows-issue-output.yml' # Also trigger if the workflow file itself changes
 
 defaults:
   run:

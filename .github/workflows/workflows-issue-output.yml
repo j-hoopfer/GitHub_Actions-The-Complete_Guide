@@ -7,5 +7,5 @@ jobs:
   issue-output:
     runs-on: ubuntu-latest
     steps:
-        - name: Output issues for workflow service
+        - name: Output issue details
           run: echo "{{ toJson(github.event) }}"

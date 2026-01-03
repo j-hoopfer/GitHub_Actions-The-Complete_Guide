@@ -8,6 +8,10 @@ on:
       - 'services/workflows/**' # Triggers for changes in servies/workflows directory
       - '.github/workflows/workflows-build.yml' # Also trigger if the workflow file itself changes
 
+defaults:
+  run:
+    working-directory: ./services/workflows
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -15,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: cd ./services/workflows && npm ci
+        run: npm ci
       - name: Lint workflow service
         run: npm run lint
 
@@ -26,7 +30,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: cd ./services/workflows && npm ci
+        run: npm ci
       - name: Test workflow service
         run: npm test
 
@@ -37,7 +41,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: cd ./services/workflows && npm ci
+        run: npm ci
       - name: Build workflow service
         run: npm run build
 

@@ -8,7 +8,7 @@ on:
       - '.github/workflows/workflows-issue-output.yml' # Also trigger if the workflow file itself changes
 
 jobs:
-  output-issues:
+  issue-output:
     runs-on: ubuntu-latest
     steps:
         - name: Output issues for workflow service

@@ -1,5 +1,4 @@
-name: Lint, test and build workflow service
-
+name: Issue output for workflow service
 on:
   push:
     branches:

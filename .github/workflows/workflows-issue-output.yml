@@ -1,11 +1,7 @@
 name: Issue output for workflow service
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'services/workflows/**' # Triggers for changes in servies/workflows directory
-      - '.github/workflows/workflows-issue-output.yml' # Also trigger if the workflow file itself changes
+  issues:
+    types: [opened]
 
 jobs:
   issue-output:

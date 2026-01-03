@@ -7,10 +7,6 @@ on:
       - 'services/workflows/**' # Triggers for changes in servies/workflows directory
       - '.github/workflows/workflows-issue-output.yml' # Also trigger if the workflow file itself changes
 
-defaults:
-  run:
-    working-directory: ./services/workflows # Set working directory to the workflow service
-
 jobs:
   output-issues:
     runs-on: ubuntu-latest

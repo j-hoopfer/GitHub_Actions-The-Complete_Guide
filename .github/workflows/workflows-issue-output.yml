@@ -15,7 +15,5 @@ jobs:
   output-issues:
     runs-on: ubuntu-latest
     steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
         - name: Output issues for workflow service
           run: echo "{{ toJson(github.event) }}"

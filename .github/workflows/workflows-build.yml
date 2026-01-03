@@ -1,0 +1,45 @@
+name: Lint, test and build workflow service
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'services/workflows/**' # Triggers for changes in servies/workflows directory
+      - '.github/workflows/workflows-build.yml' # Also trigger if the workflow file itself changes
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Lint workflow service
+        run: echo "LINTED!"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Test workflow service
+        run: echo "TESTED!"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [lint, test]    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build workflow service
+        run: echo "BUILT!"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [lint, test, build]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Deploy workflow service
+        run: echo "DEPLOYED!"

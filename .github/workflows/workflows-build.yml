@@ -14,8 +14,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Install dependencies
+        run: cd ./services/workflows && npm ci
       - name: Lint workflow service
-        run: echo "LINTED!"
+        run: npm run lint
 
   test:
     runs-on: ubuntu-latest
@@ -23,8 +25,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Install dependencies
+        run: cd ./services/workflows && npm ci
       - name: Test workflow service
-        run: echo "TESTED!"
+        run: npm test
 
   build:
     runs-on: ubuntu-latest
@@ -32,8 +36,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Install dependencies
+        run: cd ./services/workflows && npm ci
       - name: Build workflow service
-        run: echo "BUILT!"
+        run: npm run build
 
   deploy:
     runs-on: ubuntu-latest

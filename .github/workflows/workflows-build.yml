@@ -10,7 +10,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./services/workflows
+    working-directory: ./services/workflows # Set working directory to the workflow service
 
 jobs:
   lint:
